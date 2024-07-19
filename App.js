@@ -1,63 +1,68 @@
-// const parent = React.createElement("div",{id:"parent"},
-//     React.createElement(
-//         "div", 
-//         {id: "child"},
-//         [ React.createElement("h1",{},"I'm an h1 tag"), React.createElement("h2",{},"I'm an h2 tag")]
-//         )
-// );
-
-
-
-// /*const heading = React.createElement(
-//     "h1",
-//     {id:"heading",xyz: "abc"},
-//     "Hello World from React!");*/
-
-// console.log(parent);
-
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-
-// //root.render(heading);
-
-// root.render(parent);
-
-/**
- *
- * <div id="parent">
- *      <div id="child">
- *         <h1>I'm h1 tag</h1>
- *         <h2>I'm h1 tag</h2>
- *      </div>
- * <div id="child2">
- *         <h1>I'm h1 tag</h1>
- *         <h2>I'm h1 tag</h2>
- *      </div>
- * </div>
- *
- * ReactElement(Object) => HTML(Browser Understands)
- */
-
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
-const parent = React.createElement("div", { id: "parent" },
-    [
-        React.createElement("div", { id: "child" }, [
-            React.createElement("h1", {}, "This is Namaste React"),
-            React.createElement("h2", {}, "I am H2 Tag"),
-        ]),
-        React.createElement("div", { id: "child2" }, [
-            React.createElement("h1", {}, "I am H1 Tag"),
-            React.createElement("h2", {}, "I am H2 Tag"),
-        ])
-    ]
-)
+//React.createelement => Object => HTNLElement(render)
+
+//const heading = React.createElement("h1",{id:"heading"},"Namaste React");
 
 
+//JSX  - is not HTML in JS. It is HTML-like or XML- like syntax. transpiled before it reaches the JS- parcel-Babel
+//JSX=> Babel transpiles it to React.createElement=> ReactElement.JS Object=> HTMLElement(render)
 
+//React Element
+const heading = (
+<h1 className="head" tabIndex={5}>
+    Namaste React using JSX 
+    </h1>
+);
+
+const elem = <span>React element</span>
+
+const title=  (
+    <h1 className="head" tabIndex={5}>
+        {elem}
+        Namaste React using JSX
+    </h1>
+);
+
+// const fn =() => true;
+
+// const fn2 = ()=> {
+//     return true;
+//};
+//above two function do the same thing
+
+//React component
+//Class based components-OLD
+//Functional components-NEW
+
+//React Functional component
+
+//component composition
+
+const Title= () => (
+    <h1 className="head" tabIndex={5}>
+        Namaste React using JSX
+    </h1>
+);
+
+const number = 10000;
+
+const HeadingComponent = () => (
+    <div id="container">
+        <Title />
+        {number}
+        {title}
+    <h1 className="heading">Namaste React Functional Component</h1>
+    </div>
+);
+
+// const HeadingComponent2 = () => (
+// <h1>Namaste React Functional Component</h1> 
+// );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent);
+root.render(<HeadingComponent />);
 
 
